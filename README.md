@@ -5,8 +5,8 @@ WS4 Project - Scrapbook
 
 **#Tasks**
 	
-	[] Creating an interactive p5.js sketch with at least three different kinds of user input events 
-	[] Experiment with ways to record and redeploy inputs from the user
+[x] Creating an interactive p5.js sketch with at least three different kinds of user input events 
+[x] Experiment with ways to record and redeploy inputs from the user
 	
 ##**Workshop**
 

@@ -1,8 +1,9 @@
 # WorkShop4
 WS4 Project - Scrapbook
+***
 **Link = **
 
-#**Tasks**
+**#Tasks**
 	
 	[] Creating an interactive p5.js sketch with at least three different kinds of user input events 
 	[] Experiment with ways to record and redeploy inputs from the user

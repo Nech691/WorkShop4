@@ -1,4 +1,4 @@
-// -> declaring variables, strings and arrays 
+// -> Declaring variables, strings and arrays 
 let C0, C1, C2, C3, C4;
 let F0, F1, F2, F3, F4;
 let P0, P1, P2, P3, P4;
@@ -71,70 +71,75 @@ function setup() {
   Statues.push(S3);
   Statues.push(S4);
   
-  // - Canvas to user's window size
+  // -> Canvas size set to user's window size
   createCanvas(windowWidth, windowHeight); 
  
-
-  //-> initiaising selection variable
+  // -> Background menu pt I
+  // -> initiaising selection variable
   selection = createSelect();
-  // -> Menu position & size
-  selection.position(windowWidth * 0.6, windowHeight - 30);
-  selection.size(145);
+  // -> Menu position, style & size
+  selection.position(40, 70);
+  selection.size(195);
+  selection.style('background','linear-gradient(to right, #EFE4CA, #C4B898)');
+  selection.style('color', '#8C6A1B');
+  selection.style('border', '1px solid #8C6A1B');
   // -> Menu options 
-  selection.option('Sand')
-  selection.option('Bloom')
-  selection.option('Dust')
-  selection.option('Dawn')
-  selection.option('Twilight')
-  selection.option('Primavera')
-  // -> Menu heading 
-  selectionHeading = createElement('h2', 'Background_Colour');
-  // - heading position, size, font  & style
-  selectionHeading.position(selection.x, selection.y - 40);
-  selectionHeading.style('color', '#204469');
-  selectionHeading.style('font-size', '18px');
-  selectionHeading.style('font-family', 'Bradley Hand ITC');
-  // -> Background button
+  selection.option('Backgroud Color - Sand')
+  selection.option('Backgroud Color - Bloom')
+  selection.option('Backgroud Color - Dust')
+  selection.option('Backgroud Color - Dawn')
+  selection.option('Backgroud Color - Twilight')
+  selection.option('Backgroud Color - Primavera')
+
+  // -> Reset button pt I
   // - initiating variable 
   resetButton = createButton('Reset')
-  // - position & mousepress 
-  resetButton.position(50, 600);
+  // - position, style & mousepress 
+  resetButton.position(308, 88);
+  resetButton.style('background','linear-gradient(to right, #EFE4CA, #C4B898)');
+  resetButton.style('color', '#8C6A1B');
+  resetButton.style('border', '1px solid #8C6A1B');
   resetButton.mousePressed(ChangeAction);
 
-
-  // -> Input bar & bar position
+  // -> Input bar & Generate button pt I
+  // -> Input bar, bar position & style
   input = createInput();
-  input.position(100, 100)
-  // -> Input button & button position
+  input.position(120, 160);
+  input.style('background','linear-gradient(to right, #EFE4CA, #C4B898)');
+  input.style('color', '#8C6A1B');
+  input.style('border', '1px solid #8C6A1B');
+  // -> Input button, position & style
   generateButton = createButton('Generate');
   generateButton.position(input.x + input.width, input.y);
+  generateButton.style('background','linear-gradient(to right, #EFE4CA, #C4B898)');
+  generateButton.style('color', '#8C6A1B');
+  generateButton.style('border', '1px solid #8C6A1B');
   // -> input button mousepress 
   generateButton.mousePressed(generatePalavras);
-  // -> Input heading 
-  generateHeading = createElement('h2', "Create Words");
-  generateHeading.style('color', '#204469');
-  generateHeading.style('font-size', '18px');
-  generateHeading.style('font-family', 'Bradley Hand ITC');
-  generateHeading.position(input.x, input.y - 40);
 
-
+  // -> Change immages button pt I
   // -> Images Button
   imagesButton = createButton('Change Group of Images');
-  imagesButton.position(100, 300);
+  imagesButton.position(40, 230);
+  imagesButton.size (165, 18);
+  imagesButton.style('background','linear-gradient(to right, #EFE4CA, #C4B898)');
+  imagesButton.style('color', '#8C6A1B');
+  imagesButton.style('border', '1px solid #8C6A1B');
   imagesButton.mousePressed(() => {
     rArray = random(Arrays);
     currentArray.push(rArray);
   });
 
-  //Fixing frame rate so that images/text is only drawn once
+  //- > Fixing frame rate so that images/text is only drawn once
   noLoop();
 }
 
+// -> Resizing canvas with window update
 function windowResized(){
-  // - Resizing canvas with window update
   resizeCanvas(windowWidth, windowHeight); 
 }
 
+// Input pt II
 // -> setting up mousePressed function for input button
 function generatePalavras(){
   palavra = input.value();
@@ -144,6 +149,7 @@ function generatePalavras(){
   redraw();
 }
 
+// -> Reset button pt II
 function ChangeAction(){
   // -> Reset words
   listPalavras = [];
@@ -152,6 +158,7 @@ function ChangeAction(){
   redraw();
 }
 
+// -> Change Images pt II
 function mousePressed(){
   // -> Check if the mouse is pressed inside the generateButton
   if (mouseX > generateButton.position().x && 
@@ -196,41 +203,55 @@ function mousePressed(){
 }
 
 function draw() {
+  // -> Backgroung menu pt II
   // -> Local variable for seleced option
   let sed = selection.selected();
   // -> If loop for selection
-  if (sed === 'Sand'){
+  if (sed === 'Backgroud Color - Sand'){
     background(239, 229, 195)
-  } else if (sed === 'Bloom'){
+  } else if (sed === 'Backgroud Color - Bloom'){
     background(251, 226, 234)
-  } else if (sed === 'Dust'){
+  } else if (sed === 'Backgroud Color - Dust'){
     background(238, 229, 215)
-  } else if (sed === 'Dawn'){
+  } else if (sed === 'Backgroud Color - Dawn'){
     background(242, 221, 175)
-  } else if (sed === 'Twilight'){
+  } else if (sed === 'Backgroud Color - Twilight'){
     background(200, 208, 243)
-  } else if (sed === 'Primavera'){
+  } else if (sed === 'Backgroud Color - Primavera'){
     background(255, 251, 203)
   }
-  
- for (x = 0; x < listPalavras.length; x++) {   
+  // -> Generate button pt II
+  for (x = 0; x < listPalavras.length; x++) {   
     rww = random(windowWidth);
     rwh = random(windowHeight);
+    //->  Check if the word position is inside the text region
+    while (rww < 410 && rwh < 420) {
+      // -> If so, generate new random positions until it's ...
+      //... outside that region
+      rww = random(windowWidth);
+      rwh = random(windowHeight);
+    }
+
+    // ->Word style, font, etc
+    textSize(48);
+    fill("#453B29")
+    textFont('Blackadder ITC');
+    textStyle(ITALIC)
     text(listPalavras[x], rww, rwh);
     frameRate(1);
   }
-
+  // -> Instructions 
   // -> Instructions text on draw function (so it always shows up)
-  // - Instruction heading, position, size, font  & style
+  // + Instruction heading, position, size, font  & style
   Instructions = createElement('h2', 'Instructions');
   Instructions.position(20, 0);
   Instructions.style('color', '#204469');
   Instructions.style('font-size', '18px');
   Instructions.style('font-family', 'Bradley Hand ITC');
   // - Instructions text 
-  textSize(16); 
-  fill('#204469'); // Set text color
+  textSize(14); 
+  fill("#102E4C"); // - Set text color
+  textStyle(BOLD) // - Bold text
   textFont('Bradley Hand ITC'); // Set font family
-  text(InstructionsText, 20, 50, 400); // Draw text on the canvas
-
+  text(InstructionsText, 20, 40, 400); // Draw text on the canvas
 }
